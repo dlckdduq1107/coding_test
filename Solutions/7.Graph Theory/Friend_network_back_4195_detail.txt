@@ -1,0 +1,5 @@
+유니온 파인드
+딕셔너리 이용해서 parent와 number를 사용
+find_parent는 그대로 사용
+union은 부모가 다르면 f1쪽으로 합쳐주고 number를 += 해줌
+f1의 부모를 찾아 number출력해주면 끝
