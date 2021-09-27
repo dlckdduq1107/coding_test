@@ -1,0 +1,4 @@
+from itertools import conbinations
+from collections import Counter
+사용해서 조합을 구한다음 중복을 제거하고 센다
+그 다음 필터링 해서 출력
