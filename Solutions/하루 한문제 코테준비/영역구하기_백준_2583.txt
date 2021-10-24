@@ -1,0 +1,5 @@
+y좌표 먼저 채우고 x좌표 채우는 방식으로 직사각형을 채운다음에 
+dfs로 하나하나 채워나간다.(false인 것만 dfs걸리게)
+다 채우면 +1 을 해주고 넓이를 기록한다.
+이렇게 풀면 max reccuression이 걸려
+sys.setrecursionlimit(10000)를 해줬는데 bfs로 푸는게 좋을 듯하다. 
