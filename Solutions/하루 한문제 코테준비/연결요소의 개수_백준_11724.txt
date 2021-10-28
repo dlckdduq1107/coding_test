@@ -1,3 +1,4 @@
+bfs로 카운트한다.
 
 bfs할떄 처음 start에 True표시하고 연결된 노드가 visited Falsle이면 큐에 추가하고 True로 바꿔야한다.
 while문 안에서 현재노드를 True하면 이미들어간 노드가 True가 되지 않아 중복으로 들어간다.
