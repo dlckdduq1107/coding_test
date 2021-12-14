@@ -1,0 +1,2 @@
+list(dict.fromkeys(result))로 순서유지한채 중복을 제거한다.
+정규식도 쓸줄 알아야 한다.
