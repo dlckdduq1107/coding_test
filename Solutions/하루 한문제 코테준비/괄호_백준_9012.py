@@ -1,23 +1,20 @@
+def check(s):
+    stack = []
+    for char in s:
+        if(char not in dic):
+            stack.append(char)
+        else:
+            if(not stack or dic[char]!=stack.pop()):
+                return False
+
+    return len(stack)==0
+
 dic = {')':'('}
 n = int(input())
 for i in range(n):
-    stack = []
     string = input()
-    flag = False
-    for s in string:
-        if(s not in dic):
-            stack.append(s)
-        else:
-            if(not stack or dic[s]!=stack.pop()):
-                flag = True
-                print("NO")
-                break
-    # print(stack,i)
-    if(flag):
-        continue
+    if(check(string)):
+        print("YES")
     else:
-        if(stack):
-            print("NO")
-        else:
-            print("YES")
+        print("NO")
 
