@@ -18,20 +18,20 @@ else:
     result = []
     x,y = len(str2),len(str1)
     while(x>0 and y>0):
-        if(dp[x][y]==dp[x-1][y]):
-            x-=1
-        elif(dp[x][y]==dp[x][y-1]):
-            y-=1
-        else:
+        # if(dp[x][y]==dp[x-1][y]):
+        #     x-=1
+        # elif(dp[x][y]==dp[x][y-1]):
+        #     y-=1
+        # else:
+        #     result.append(str1[y-1])
+        #     x,y = x-1,y-1
+        if(str1[y-1]==str2[x-1]):
             result.append(str1[y-1])
             x,y = x-1,y-1
-        # if(str1[x-1]==str2[y-1]):
-        #     result.append(str1[x-1])
-        #     x,y = x-1,y-1
-        # else:
-        #     if(dp[x-1][y]==dp[x][y]):
-        #         x,y = x-1,y
-        #     else:
-        #         x,y = x,y-1
+        else:
+            if(dp[x-1][y]>dp[x][y-1]):
+                x,y = x-1,y
+            else:
+                x,y = x,y-1
     result.reverse()
     print(''.join(result))
