@@ -10,8 +10,7 @@ def solution(id_list, report, k):
         if(target not in gobal[attack]):
             gobal[attack].append(target)
             limit[target] += 1
-    # print(gobal)
-    # print(limit)
+    
     for i in id_list:
         temp = 0
         for j in gobal[i]:
