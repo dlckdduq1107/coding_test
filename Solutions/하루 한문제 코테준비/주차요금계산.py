@@ -25,23 +25,15 @@ def solution(fees, records):
             start[car_num] = time
             end[car_num] = "NOT"
         else:
-            # result[car_num] += cal(sub(start[car_num],time), basic_time, basic_cost, per_time, per_cost)
             end[car_num] = time
             total[car_num] += sub(start[car_num],time)
-            # print("a",result,"\n", start,"\n",end)
-    # print(start,end)
     for num in sorted(start.keys()):
-        start_time = start[num]
         if(end[num] == "NOT"):
             end_time = '23:59'
             total[num] += sub(start[num],end_time)
-    print(total)
-        # else:
-        #     end_time = end[num]
-            # result[car_num] += cal(sub(start_time,end_time), basic_time, basic_cost, per_time, per_cost)
     for i in sorted(total.keys()):
         t = cal(total[i], basic_time, basic_cost, per_time, per_cost)
         answer.append(t)
-    print(result)
     return answer
+    
 print(solution([180, 5000, 10, 600], ["05:34 5961 IN", "06:00 0000 IN", "06:34 0000 OUT", "07:59 5961 OUT", "07:59 0148 IN", "18:59 0000 IN", "19:09 0148 OUT", "22:59 5961 IN", "23:00 5961 OUT"]))
