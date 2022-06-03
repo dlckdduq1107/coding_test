@@ -1,6 +1,4 @@
 import copy
-
-
 def cal_num(lion,apeach):
     lion_total,apeach_total = 0,0
     for i in range(11):
@@ -20,9 +18,17 @@ def dfs(lion_list,count,idx,info,n):
     if(count==n):
         temp = cal_num(lion_list, info)
         if(temp>0):
-            if(differ<temp):
-                answer = copy.deepcopy(lion_list)
-                differ = temp
+            if(differ<=temp):
+                if(temp==differ):
+                    for i in range(10,-1,-1):
+                        if(lion_list[i]>answer[i]):
+                            answer = copy.deepcopy(lion_list)
+                            break
+                        if(lion_list[i]<answer[i]):
+                            break
+                else:
+                    answer = copy.deepcopy(lion_list)
+                    differ = temp
     else:
         lion_list[idx] += 1
         dfs(lion_list,count+1,idx,info,n)
@@ -37,5 +43,3 @@ def solution(n, info):
     if(differ==int(-1e9)):
         answer = [-1]
     return answer
-
-print(solution(5,[2,1,1,1,0,0,0,0,0,0,0]))
