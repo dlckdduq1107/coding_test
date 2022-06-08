@@ -12,8 +12,7 @@ def check(x,y,graph):
                     c2 += 1
                 if(graph[i][j]=='W'):
                     c1 += 1
-    print(c1,c2)
-    return min(c2,c2)
+    return min(c1,c2)
 
 n,m = map(int,input().split(' '))
 
