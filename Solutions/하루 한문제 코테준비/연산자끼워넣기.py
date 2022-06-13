@@ -1,6 +1,6 @@
 def dfs(plus,minus,multi,div,value,count):
     global res_max,res_min
-    if(len(numbers)==count):
+    if(n==count):
         res_max = max(res_max, value)
         res_min = min(res_min, value)
     else:
@@ -22,7 +22,7 @@ plus,minus,multi,div = map(int,input().split(' '))
 res_min = int(1e9)
 res_max = int(-1e9)
 
-dfs(plus,minus,multi,div,0,1)
+dfs(plus,minus,multi,div,numbers[0],1)
 
 print(res_max)
 print(res_min)
