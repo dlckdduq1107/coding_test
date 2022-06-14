@@ -11,7 +11,7 @@ def check(x,y,target):
 def dfs(count):
     if(count==len(zeros)):
         for i in arr:
-            print(*i)
+            print(' '.join(list(map(str,i))))
         return
     else:
         for i in range(1,10):
