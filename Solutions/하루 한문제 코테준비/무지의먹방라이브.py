@@ -1,22 +1,26 @@
-import copy
+import heapq
 def solution(food_times, k):
-    answer = 0
-    temp = copy.deepcopy(food_times)
-    pivot = 0
-    time = 0
-    while time!=k:
-        if(pivot>=len(temp)):
-            pivot = 0
-        if(temp[pivot]>0):
-            temp[pivot] -= 1
-            pivot += 1
+    answer = -1
+    q =[]
+    for i in range(len(food_times)):
+        heapq.heappush(q,[food_times[i], i+1])
+
+    remain_food = len(food_times)
+    previous = 0
+    while q:
+        time = (q[0][0]-previous)*remain_food
+        if(k>=time):
+            k -= time
+            previous,_ = heapq.heappop(q)
+            remain_food -= 1
         else:
-            if(sum(temp)==0):
-                return -1
-            while temp[pivot]==0:
-                pivot += 1
-            temp[pivot] -= 1
-        time += 1
-        print(temp)
-    return (pivot+1)%len(temp)+1
+            idx = k%remain_food
+            q.sort(key=lambda x:x[1])
+            answer = q[idx][1]
+            break
+    return answer
+
+
+
+    
 print(solution([3, 1, 2], 5))
