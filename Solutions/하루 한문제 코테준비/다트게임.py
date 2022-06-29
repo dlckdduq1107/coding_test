@@ -1,13 +1,9 @@
-from curses import noecho
-from optparse import Option
 import re
 def solution(dartResult):
-    answer = 0
     result = []
     p = re.compile('[0-9]+[S|D|T][*|#]?')
     each_list = p.findall(dartResult)
     for idx,i in enumerate(each_list):
-        # print(i)
         each = list(i)
         if(each[1]=='0'):
             score = 10
@@ -38,7 +34,6 @@ def solution(dartResult):
                     result[idx-1] = result[idx-1]*2
             else:
                 result[idx] = result[idx]*-1
-        # print(result)
     return sum(result)
 
 print(solution("1D2S#10S"))
