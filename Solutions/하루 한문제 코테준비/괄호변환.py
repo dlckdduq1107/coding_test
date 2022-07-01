@@ -1,5 +1,5 @@
 
-def divide(target):
+def divide(target): # 균형잡힌 괄호 나누기
     start,end = 0,0
     for idx,each in enumerate(target):
         if(each == '('):
@@ -8,7 +8,7 @@ def divide(target):
             end += 1
         if(start==end):
             return target[:idx+1], target[idx+1:]
-def check(target):
+def check(target):# 스택을 이용한 올바른 괄호 판단
     stack = []
     for i in target:
         if(i=='('):
@@ -18,7 +18,7 @@ def check(target):
                 return False
             stack.pop()
     return True
-def dfs(target):
+def dfs(target): # 요구사항 그대로 반영
     if(target==''):
         return ''
     u,v = divide(target)
