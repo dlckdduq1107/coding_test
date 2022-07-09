@@ -1,3 +1,4 @@
+# 2차원 그래프로 생각하지 말고 배열에다 값을 넣어준 다음에 상태를 체크해서 뺴주던지 더해주던지 하자
 def check(result):
     for x,y,t in result:
         if(t==0):
