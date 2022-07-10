@@ -3,6 +3,11 @@ def solution(dartResult):
     result = []
     p = re.compile('[0-9]+[S|D|T][*|#]?')
     each_list = p.findall(dartResult)
+    for i in dartResult:
+        if(i.isnumeric()):
+            print(i.isnumeric())
+        elif(i == '10'):
+            print(i)
     for idx,i in enumerate(each_list):
         each = list(i)
         if(each[1]=='0'):
