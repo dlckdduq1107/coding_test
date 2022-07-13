@@ -1,6 +1,7 @@
 import sys
-sys.setrecursionlimit(10**4)
+sys.setrecursionlimit(111111)
 def dfs(start):
+    global result
     visited[start] = True
     num = graph[start]
     cycle.append(start)
