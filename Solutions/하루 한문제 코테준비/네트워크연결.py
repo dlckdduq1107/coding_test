@@ -1,4 +1,18 @@
+def union(a,b):
+    root1 = find(a)
+    root2 = find(b)
+    if(root1>root2):
+        parent[root1] = root2
+    else:
+        parent[root2] = root1
+
+def find(node):
+    if(parent[node]!=node):
+        parent[node] = find(parent[node])
+    return parent[node]
+
 n = int(input())
+parent = [i for i in range(n+1)]
 edges = int(input())
 graph = [[] for i in range(n+1)]
 distance = []
@@ -13,13 +27,7 @@ cycle = set()
 # cycle.extend([s,e])
 # result += c
 for start,end,cost in distance:
-    if(len(cycle)==n):
-        break
-    if(start in cycle and end in cycle):
-        continue
-    else:
-        cycle.add(start)
-        cycle.add(end)
+    if(find(start) != find(end)):
+        union(start,end)
         result += cost
-        print(start,end,cycle,result)
 print(result)
