@@ -32,7 +32,7 @@ for i in range(party):
 # print(total_party)
 result = 0
 for each in total_party:
-    print(each)
+    # print(each)
     flag = True
     for i in each:
         if(find(i)==0):
