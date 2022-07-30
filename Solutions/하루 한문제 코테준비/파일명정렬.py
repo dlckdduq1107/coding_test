@@ -8,7 +8,6 @@ def solution(files):
         origin_head = each_file[:m.start()]
         head = origin_head.upper()
         tail = each_file[m.end():]
-        print(each_file, head,num,tail)
         result.append([head,num,tail,origin_head])
     
     result.sort(key=lambda x:int(x[1]))
@@ -18,3 +17,4 @@ def solution(files):
         answer.append(i[3]+i[1]+i[2])
     return answer
 print(solution(["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]))
+# 정규식으로 나눈 다음에 정렬할떄 lambda로 하면 된다.
