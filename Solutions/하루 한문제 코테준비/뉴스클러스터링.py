@@ -1,10 +1,7 @@
-
 import math
-
 
 def sum_set(a,b):
     result = []
-    temp_a = a.copy()
     temp_b = b.copy()
     for i in a:
         if(i in temp_b):
@@ -35,11 +32,9 @@ def solution(str1, str2):
         each = (str2[i]+str2[i+1]).upper()
         if(each.isalpha()):
             s2.append(each)
-    # print(s1,s2)
-    if(len(s1)==0 or len(s2)==0):
+    if(len(s1)==0 and len(s2)==0):
         return 65536
     answer = len(sub_set(s1,s2))/len(sum_set(s1,s2))
     answer*=65536
-    # print(sub_set([1,1,2,2,3],[1,2,2,4,5]))
     return math.floor(answer)
 print(solution("aa1+aa2","AAAA12"))
