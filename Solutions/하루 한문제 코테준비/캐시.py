@@ -2,6 +2,7 @@ def solution(cacheSize, cities):
     answer = 0
     cache = []
     for i in cities:
+        i = i.upper()
         if(cacheSize==0):
             answer += 5
             continue
