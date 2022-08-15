@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10**4)
 def dfs(start):
     visited[start] = True
     num = graph[start]
