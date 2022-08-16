@@ -14,7 +14,6 @@ def find(node):
 n = int(input())
 parent = [i for i in range(n+1)]
 edges = int(input())
-graph = [[] for i in range(n+1)]
 distance = []
 for i in range(edges):
     start, end, cost = map(int, input().split(" "))
@@ -22,10 +21,6 @@ for i in range(edges):
 distance.sort(key=lambda x:x[2])
 
 result = 0
-cycle = set()
-# s,e,c = distance.pop(0)
-# cycle.extend([s,e])
-# result += c
 for start,end,cost in distance:
     if(find(start) != find(end)):
         union(start,end)
