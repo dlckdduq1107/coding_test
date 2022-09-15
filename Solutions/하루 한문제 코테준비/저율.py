@@ -4,19 +4,16 @@
 n = int(input())
 num_list = list(map(int,input().split(" ")))
 num_list.sort()
-print(num_list)
-collected_set = set()
-flag = False
-result = 0
-for i in num_list:    
-    for j in list(collected_set):
-        collected_set.add(j+i)
-        if(sum(collected_set) != ((len(collected_set))*(len(collected_set)+1))/2):
-            result = len(collected_set)
-            flag = True
-            break
-    if flag:
-        break
-    collected_set.add(i)
-    print(collected_set)
+result = 1
+if(1 not in num_list):
+    print(result)
+    exit(0)
+start,end = 0,num_list.pop(0)
+for i in num_list:
+    next_start, next_end = start+i, end+i
+    if(next_start<=end):
+        end = next_end
+    else:
+        result = end + 1
+
 print(result)
