@@ -16,17 +16,20 @@ for i in range(n):
             stack[num].append(flat)
             result += 1
         elif(flat < last):
-            while(flat < last):
-                result += 1
-                stack[num].pop(-1)
+            while(True):
                 if(len(stack[num]) ==0):
                     stack[num].append(flat)
-                    last = flat
                     result += 1
-                else:
-                    last = stack[num][-1]
-            if(flat != last):
+                    break
+                last = stack[num][-1]
+                if(last <= flat):
+                    if(last < flat):
+                        stack[num].append(flat)
+                        result += 1
+                    break
+                stack[num].pop()
                 result += 1
+            
     # print(result)
 print(result)
 
