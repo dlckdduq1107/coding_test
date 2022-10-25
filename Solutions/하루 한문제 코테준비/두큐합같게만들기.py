@@ -3,28 +3,36 @@ from collections import deque
 def solution(queue1, queue2):
     answer = 1
     first,second = deque(copy.deepcopy(queue1)), deque(copy.deepcopy(queue2))
-
-    if(sum(first) == sum(second)):
+    sum_first, sum_second = sum(first), sum(second)
+    if(sum_first == sum_second):
         return 0
     
     else:
-        if(sum(first)>sum(second)):
+        if(sum_first>sum_second):
             popper = first.popleft()
             second.append(popper)
+            sum_first -= popper
+            sum_second += popper
         else:
             popper = second.popleft()
             first.append(popper)
+            sum_second -= popper
+            sum_first += popper
     flag = True
     for i in range(len(queue1)*4):
-        if(sum(first)>sum(second)):
+        if(sum_first>sum_second):
             popper = first.popleft()
             second.append(popper)
-        elif(sum(first)==sum(second)):
+            sum_first -= popper
+            sum_second += popper
+        elif(sum_first==sum_second):
             flag = False
             break
         else:
             popper = second.popleft()
             first.append(popper)
+            sum_second -= popper
+            sum_first += popper
         answer += 1
         
     
