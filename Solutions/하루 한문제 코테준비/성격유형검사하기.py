@@ -12,7 +12,7 @@ def solution(survey, choices):
             personality[disagree] += abs(4-num)
         else:
             personality[agree] += abs(4-num)
-        # print(personality,num)
+
     for first,second in each_personal:
         if(personality[first]<personality[second]):
             answer += second
