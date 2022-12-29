@@ -14,4 +14,4 @@ if(error_key != 0):
     print(min_count)
             
 else:
-    print(len(str(n)))
+    print(min(abs(100-n),len(str(n))))
