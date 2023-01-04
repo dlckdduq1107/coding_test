@@ -1,38 +1,31 @@
+from audioop import maxpp
 from itertools import combinations
-from collections import Counter
+from collections import Counter, defaultdict
 
 def solution(orders, course):
     answer = []
-    result = []
-    for i in orders:
-        temp = sorted(i)
-        for j in course:
-            t = list(combinations(temp,j))
-            result.extend(t)
-            #print(t)
-    #print(result)
-    res = Counter(result)
-    count = {}
-    #print(res)
-    for i in res:
-        if(res[i] >=2 and len(i) not in count):
-            #answer.append("".join(i))
-            count[len(i)] = [(res[i],"".join(i))]
-            #print(len(i),res[i])
-        elif(res[i]<2):
-            pass
-        elif(res[i] >= count[len(i)][0][0]):
-            if(res[i]==count[len(i)][0][0]):
-                count[len(i)].append((res[i],"".join(i)))
+    combi = defaultdict(int)
+    for i in range(len(orders)):
+        for j in range(2,len(orders[i])+1):
+            for each in combinations(orders[i],j):
+                combi[''.join(sorted(list(each)))] += 1
+    # print(combi)
+    max_dict = {}
+    for i in course:
+        max_dict[i] = [[],0]
+    # print(max_dict)
+    for i in combi:
+        # print(len(i) in max_dict, i)
+        if(combi[i]>1 and len(i) in course and len(i) in max_dict.keys()):
+            if(max_dict[len(i)][1]<combi[i]):
+                max_dict[len(i)]= [[i],combi[i]]
+            elif(max_dict[len(i)][1]==combi[i]):
+                max_dict[len(i)][0].append(i)
             else:
-                count[len(i)] = [(res[i],"".join(i))]
-    #print(count)
-    for i in count:
-        for j in count[i]:
-            answer.append(j[1])
-
-
-
+                pass
+    # print(max_dict)
+    for i in max_dict:
+        answer.extend(max_dict[i][0])
     return sorted(answer)
 
 print(solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"],[2,3,4]))
