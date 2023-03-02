@@ -1,0 +1,15 @@
+def multiple(target, value):
+    if(value == 1):
+        return target % c
+    else:
+        temp = multiple(target, value//2)
+
+        if(value %2 ==1):
+            return temp * temp*a%c
+        else:
+            return temp * temp %c
+
+
+
+a,b,c = map(int, input().split())
+print(multiple(a,b))
